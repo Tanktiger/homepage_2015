@@ -7,7 +7,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="de">
 <head>
-     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META NAME="Keywords" CONTENT="Webseiten, Tom Scheduikat, Internet, SEO, SEM, Stralsund, Altefähr, Rügen, Mecklenburg, Vorpommern, Beratung, Unterstützung, Webdesign, Internetauftritt, Internetseite, Internet,kostenlos, Beratung">
+    <META NAME="Description" CONTENT="Kostenlose Erstberatung für Ihren neuen Internetauftritt erhalten Sie von Tom Scheduikat.">
+    <META NAME="Author" CONTENT="Tom Scheduikat">
+    <META NAME="Robots" CONTENT="index,follow">
     <title>Tom Scheduikat | Webentwickler | Webseiten - SEO - SEM - IT-Consulting</title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" >
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" >
@@ -30,7 +34,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 			<div class="logo">
 				<a href="/">
-                    <!--<img src="images/logo.png" alt="" />-->
                     <h2>Tom Scheduikat</h2>
                 </a>
 			</div>
@@ -68,7 +71,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="banner-matter">
 			<h2>Programmierung</h2>
 			<p>aus Leidenschaft für Qualität anstatt Quantität</p>
-            <!--<a class="more" href="#" >Learn More</a>-->
 		</div>
 	</div>
 	<!--//banner-->
@@ -83,25 +85,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 				<div class="development">
 					<div class="col-md-4 pencil-line">
-						<!--<img src="images/pencil.png" alt="" />-->
                         <i class="fa fa-cogs fa-9x"></i>
 						<h4>ENTWICKLUNG</h4>
 						<p>Ich entwerfe und entwickle Ihre persönliche Webseite. Egal ob einfach oder komplex.</p>
-						<!--<span class="line"> </span>-->
 					</div>
 					<div class="col-md-4 pencil-line">
                         <i class="fa fa-comment fa-9x"></i>
-						<!--<img src="images/ro.png" alt="" />-->
 						<h4>BERATUNG</h4>
 						<p>Sie brauchen Rat in bestimmten Bereich der IT? Ich helfe Ihnen weiter!</p>
-						<!--<span class="line"> </span>-->
 					</div>
 					<div class="col-md-4 pencil-line">
-						<!--<img src="images/set.png" alt="" />-->
                         <i class="fa fa-group fa-9x"></i>
 						<h4>UNTERSTÜTZUNG</h4>
 						<p>Ich unterstütze Ihr Unternehmen in verschiedensten Bereichen und bringe es voran.</p>
-						<!--<span class="line"> </span>-->
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -113,19 +109,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="portfolio-we">
 					<h3>P<span>ORTFOLI</span>0</h3>
 				</div>
-				<!--<label class="portfolio-menu"> </label>-->
-				<!--<ul id="filters">-->
-                    <!--<li><span class="filter active" data-filter="app card icon web">All projects</span></li>-->
-                    <!--<li><span class="filter" data-filter="app">Web design</span></li>-->
-                    <!--<li><span class="filter" data-filter="card">Videos</span></li>-->
-                    <!--<li class="mobile"><span class="filter" data-filter="icon">Mobile app</span></li>-->
-                <!--</ul>-->
-                <!--<script>-->
-                <!--$("label.portfolio-menu").click(function(){-->
-                    <!--$("ul#filters").slideToggle(500, function(){-->
-                    <!--});-->
-                <!--});-->
-                <!--</script>-->
 					<div id="portfoliolist">
 					<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
 						<div class="portfolio-wrapper ">		
@@ -177,53 +160,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>	
 					<div class="clearfix"> </div>
 					</div>	
-			<!---- Script for gallery Here --->
-				<script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
-					<script type="text/javascript">
-					$(function () {
-						
-						var filterList = {
-						
-							init: function () {
-							
-								// MixItUp plugin
-								// http://mixitup.io
-								$('#portfoliolist').mixitup({
-									targetSelector: '.portfolio',
-									filterSelector: '.filter',
-									effects: ['fade'],
-									easing: 'snap',
-									// call the hover effect
-									onMixEnd: filterList.hoverEffect()
-								});				
-							
-							},
-							
-							hoverEffect: function () {
-							
-								// Simple parallax effect
-								$('#portfoliolist .portfolio').hover(
-									function () {
-										$(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
-										$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');				
-									},
-									function () {
-										$(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
-										$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');								
-									}		
-								);				
-							
-							}
-				
-						};
-						
-						// Run the show!
-						filterList.init();
-						
-						
-					});	
-					</script>
-			<!-- Gallery Script Ends -->
 			</div>
 		</div>
 		<!--team-->
@@ -259,7 +195,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						    <input id="submitContact" type="submit" value="Absenden" >
 						</div>
 					</form>
-                    <p class="statusMsg"></p>
+                    <div id="statusMessages">
+                        <p class="statusMsg"></p>
+                    </div>
 				</div>
 			</div>
 	</div>
@@ -268,9 +206,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="footer">
 		<div class="container">
 			 <p class="footer-class"><small>&copy; 2014 Template by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </small></p>
-			 <!--<ul class="social-icons">-->
-                 <!--<li class=""><i class="fa fa-linkedin fa-2x"></i></li>-->
-			<!--</ul>-->
             <p class="footer-right">
                 <a href="https://lnkd.in/bpwb-Ex" target="_blank"> <i class="fa fa-linkedin fa-2x"></i></a>
                 <a href="https://www.xing.com/profile/Tom_Scheduikat" target="_blank"> <i class="fa fa-xing fa-2x"></i></a>
@@ -296,12 +231,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script type="text/javascript">
             $(document).ready(function() {
                 $('#submitContact').on('click', function() {
-                    $( ".statusMsg").empty();
+                    $("#statusMessages .statusMsg").empty();
                     $('#submitContact').hide();
                     var form = $(this).parents('form');
                     var name = form.find('.contactName').val();
+                    if (name == 'Ihr Name') {
+                        name = '';
+                    }
                     var email = form.find('.contactMail').val();
                     var text = form.find('.contactText').val();
+                    if (text == 'Ihre Nachricht') {
+                        text = '';
+                    }
                     var request = $.ajax({
                         url: "contact.php",
                         type: "POST",
@@ -313,7 +254,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         dataType: "json"
                     });
                     request.done(function( data ) {
-                        $( ".statusMsg" ).html( data.msg );
+                        if (data.success == true) {
+                            $( "#statusMessages .statusMsg" ).html( data.msg).css('color', 'green');
+                        } else {
+                            if (data.mail == false) {
+                                $( "#statusMessages").append('<p class="statusMsg">Ihre Emailadresse ist nicht korrekt!</p>');
+                            }
+                            if (data.name == false) {
+                                $( "#statusMessages").append('<p class="statusMsg">Ihr Name fehlt!</p>');
+                            }
+                            if (data.text == false) {
+                                $( "#statusMessages").append('<p class="statusMsg">Ihre Nachricht fehlt!</p>');
+                            }
+                        }
                         $('#submitContact').show();
                     });
                     request.fail(function( jqXHR, textStatus ) {

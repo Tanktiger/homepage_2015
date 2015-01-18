@@ -1,18 +1,25 @@
 <?php
 $myemail  = 'tom.scheduikat@gmail.com';
 
-/* Check all form inputs using check_input function */
-if (!check_input($_POST['name'])
-    || !check_input($_POST['email'])
-    || !check_input($_POST['text'])
-    || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
-) {
-    echo json_encode(array('success' => 'false', 'msg' => 'Angaben Fehlerhaft! Bitte überprüfen Sie Ihre Eingaben!'));
-    exit();
-}
 $name = check_input($_POST['name']);
 $email    = check_input($_POST['email']);
+$correctMail = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 $Kommentar = check_input($_POST['text']);
+/* Check all form inputs using check_input function */
+if (!$name
+    || !$email
+    || !$Kommentar
+    || !$correctMail
+) {
+    echo json_encode(array('success' => false,
+                            'msg' => 'Angaben Fehlerhaft! Bitte überprüfen Sie Ihre Eingaben!',
+                            'mail' => $correctMail,
+                            'name' => $name,
+                            'text' => $Kommentar
+                    ));
+    exit();
+}
+
 $subject = "Kontaktanfrage ";
 
 $message = "
@@ -38,7 +45,7 @@ $headers .= 'From: tomscheduikat.com Webmailer' . "\r\n";
 /* Send the message using mail() function */
 mail($myemail, $subject, $message, $headers);
 
-echo json_encode(array('success' => 'true', 'msg' => 'Erfolgreich abgesendet!'));
+echo json_encode(array('success' => true, 'msg' => 'Erfolgreich abgesendet!'));
 exit();
 /* Functions we used */
 function check_input($data)
