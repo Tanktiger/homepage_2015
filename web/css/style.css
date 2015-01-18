@@ -102,9 +102,13 @@ body{
 	position: relative;
 }
 .banner-matter{
-	position:absolute;
-	top:32%;
-	left: 29%;
+    position: relative;
+    /* top: 32%; */
+    /* left: 29%; */
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10%;
+	/*position:absolute;*/
 }
 .banner-matter h2{
 	font-size: 3.5em;
@@ -467,7 +471,7 @@ ul.social li.inline a span:hover{
 	width: 79%;
 	margin: 0 auto;
 }
-.contact-us input[type="text"],.contact-us textarea,.contact-us input[type="submit"]{
+.contact-us input[type="text"],.contact-us input[type="email"],.contact-us textarea,.contact-us input[type="submit"]{
 	font-size: 1.2em;
 	width: 38%;
 	padding: 1em;
@@ -917,4 +921,17 @@ ul.social {
 }
 .fa-9x {
     font-size: 9em;
+}
+
+.footer-right {
+    float:right;
+    padding: 1em 0;
+}
+.footer-right i {
+    padding: 0 10px;
+}
+
+.statusMsg {
+    color: red;
+    font-size: 2em;
 }

@@ -29,7 +29,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="header">
 		<div class="container">
 			<div class="logo">
-				<a href="index.html">
+				<a href="/">
                     <!--<img src="images/logo.png" alt="" />-->
                     <h2>Tom Scheduikat</h2>
                 </a>
@@ -231,7 +231,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="container">
 					<div class="team">
 						<h3>Ü<span>ber Mic</span>h</h3>
-						<p></p>
+						<p>
+                            Hallo, mein Name ist Tom Scheduikat und ich arbeite dort wo (fast) immer die Sonne scheint. Ich bin Web-Entwickler, Programmierer und Schokoladenfreak. Eigentlich programmiere ich Webseiten, berate Kunden und unterstütze diese bei ihrer Internetpräsenz und trage somit zum Erfolg der Kunden bei.
+                        </p>
+                        <p>
+                            In Wirklichkeit helfe ich Menschen jedoch dabei, ihr Unternehmen durch den maßgenschneiderten Internetauftritt nach vorne zu bringen und noch populärer zu machen.
+                        </p>
+                        <p>
+                            Ich bin der Meinung, dass wir alle mehr Freizeit verdient haben und somit möchte ich Ihnen in diesen Bereichen sehr gerne unter die Arme greifen damit Sie den Kopf für die anderen Dinge im Leben frei haben.
+                        </p>
 					</div>
 				</div>
 			</div>
@@ -243,14 +251,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<p>Wünschen Sie eine kostenlose Erstberatung oder haben Sie noch Fragen? Dann kontaktieren Sie mich bitte einfach über das untenstehende Kontaktformular.</p>
                         <p>Vielen Dank.</p>
 					</div>
-					<form>
-						<input name="name" type="text" value="Ihr Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Ihr Name';}">
-						<input name="mail" type="text" value="Ihre Emailadresse" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Ihre Emailadresse';}">
-						<textarea cols="77" rows="6" value=" " onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Ihre Nachricht';}">Ihre Nachricht</textarea>
+					<form action="javascript:;" method="post">
+						<input class="contactName" name="name" type="text" value="Ihr Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Ihr Name';}">
+						<input class="contactMail" name="email" type="email" value="Ihre Emailadresse" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Ihre Emailadresse';}">
+						<textarea class="contactText" name="text" cols="77" rows="6" value=" " onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Ihre Nachricht';}">Ihre Nachricht</textarea>
 						<div class="send">
-						<input type="submit" value="Absenden" >
+						    <input id="submitContact" type="submit" value="Absenden" >
 						</div>
 					</form>
+                    <p class="statusMsg"></p>
 				</div>
 			</div>
 	</div>
@@ -259,13 +268,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="footer">
 		<div class="container">
 			 <p class="footer-class"><small>&copy; 2014 Template by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </small></p>
-			 <ul class="social-icons">
-				<!--<li class="facebook"><a href="#"><span > </span></a></li>-->
-				<!--<li class="twitter"><a href="#"><span > </span></a></li>-->
-				<!--<li class="youtube"><a href="#"><span > </span></a></li>-->
-				<li class="inline"><a href="#"><span > </span></a></li>
-				<li class="message"><a href="mailto:info@tomscheduikat.com"><span > </span></a></li>
-			</ul>
+			 <!--<ul class="social-icons">-->
+                 <!--<li class=""><i class="fa fa-linkedin fa-2x"></i></li>-->
+			<!--</ul>-->
+            <p class="footer-right">
+                <a href="https://lnkd.in/bpwb-Ex" target="_blank"> <i class="fa fa-linkedin fa-2x"></i></a>
+                <a href="https://www.xing.com/profile/Tom_Scheduikat" target="_blank"> <i class="fa fa-xing fa-2x"></i></a>
+                <a href="https://plus.google.com/+TomScheduikat" target="_blank"> <i class="fa fa-google-plus fa-2x"></i></a>
+            </p>
 			 <div class="clearfix"> </div>
 		</div>
 		<script type="text/javascript">
@@ -283,6 +293,36 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         });
     </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#submitContact').on('click', function() {
+                    $( ".statusMsg").empty();
+                    $('#submitContact').hide();
+                    var form = $(this).parents('form');
+                    var name = form.find('.contactName').val();
+                    var email = form.find('.contactMail').val();
+                    var text = form.find('.contactText').val();
+                    var request = $.ajax({
+                        url: "contact.php",
+                        type: "POST",
+                        data: {
+                            name : name,
+                            email: email,
+                            text: text
+                        },
+                        dataType: "json"
+                    });
+                    request.done(function( data ) {
+                        $( ".statusMsg" ).html( data.msg );
+                        $('#submitContact').show();
+                    });
+                    request.fail(function( jqXHR, textStatus ) {
+                        alert( "Die Anfrage ist fehlgeschlagen: " + textStatus );
+                        $('#submitContact').show();
+                    });
+                });
+            });
+        </script>
     <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 	</div>
 </body>
